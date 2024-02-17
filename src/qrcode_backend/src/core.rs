@@ -35,7 +35,7 @@ pub(super) fn generate(
 }
 
 fn make_transparent(qr: &mut ImageBuffer<Rgba<u8>, Vec<u8>>) {
-    for (_x, _y, pixel) in qr.enumerate_pixel_mut() {
+    for (_x, _y, pixel) in qr.enumerate_pixels_mut() {
         if pixel.0 == [255, 255, 255, 255] {
             *pixel = image::Rgba([255, 255, 255, 0])
         }
@@ -115,5 +115,5 @@ fn get_qr_element_size(qr: &mut ImageBuffer<Rgba<u8>, Vec<u8>>) -> usize {
         }
     }
 
-    element_size  as usize
+    element_size as usize
 }
